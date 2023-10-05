@@ -4,9 +4,15 @@ def parse_input(user_input):
     return cmd, *args
 
 def add_contact(args, contacts):
-    name, phone = args
-    contacts[name] = phone
-    return "Contact added."
+    if not len(args) < 2:
+        name, phone = args
+    else:
+        return "Name and Phone Number is needed!"
+    try:
+        contacts[name] = phone
+        return f'Contact {name} with phone number: {phone} added.'
+    except:
+        return 'Contact {name} with phone number: {phone} could not be added.'
 
 def show_phone(args, contacts):
     name = args[0]
@@ -15,6 +21,15 @@ def show_phone(args, contacts):
         return phone
     except:
         return f'There is no phone number for {name} saved'
+    
+def show_all(contacts):
+    text = ("{:.<15}|{:<10}\n".format('Name', 'Phone Number'))
+    try:
+        for key, value in contacts.items():
+            text += ("{:.<15}|{:<10}\n".format(key, value))
+        return text
+    except:
+        return f'There are no phone number saved'
     
 def main():
     contacts = {}
@@ -32,6 +47,8 @@ def main():
             print(add_contact(args, contacts))
         elif command == "show":
             print(show_phone(args, contacts))
+        elif command == "all":
+            print(show_all(contacts))
         else:
             print("Invalid command.")
 
