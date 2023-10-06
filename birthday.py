@@ -1,16 +1,5 @@
 import datetime
 
-data = [
-    {"name": "Bill Gates", "birthday": datetime.date(1955, 10, 28)},
-    {"name": "Kostiantyn Romanchuk", "birthday": datetime.date(1985, 5, 5)},
-    {"name": "Nikolaj Romancuk", "birthday": datetime.date(2007, 5, 17)},
-    {"name": "Anton Romancuk", "birthday": datetime.date(2005, 12, 20)},
-    {"name": "Test User", "birthday": datetime.date(1990, 10, 7)},
-    {"name": "Test User2", "birthday": datetime.date(1990, 10, 8)},
-    {"name": "Test User3", "birthday": datetime.date(1990, 10, 12)},
-    {"name": "Test User4", "birthday": datetime.date(1990, 10, 14)}
-]
-
 def get_birthdays_one_week_away(data):
     current_date = datetime.date.today()
     people_with_birthday_next_week = []
